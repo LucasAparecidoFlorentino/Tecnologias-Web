@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aula 16 - Converter string para float/int</title>
+    <script src="js/jquery-3.3.1.js"> </script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+      $("#soma").click(function(event) {
+        /* Act on the event */
+        // Pega o valor do campo com id "num1" e armazena em uma variável
+        var num1 = $("#num1").val();
+        var num2 = $("#num2").val();
+        // Converte de string para float
+        num1 = parseFloat(num1);
+        num2 = parseFloat(num2);
+        // Cria uma variável para armazenar o resultado da operação
+        var soma = num1 + num2;
+        // Exibe uma mensagem de alerta
+        alert("A soma de " +num1+ " com " +num2+ " é " +soma);
+        // Exemplo para colocar a mensagem em um elemento da tela, como um p, span, label, etc
+        //$("elemento").text("O dobro é "+dobro);
+      });
+      $("#mult").click(function(event) {
+        /* Act on the event */
+        var num1 = $("num1").val();
+        var num2 = $("num2").val();
+
+        num1 = parseFloat(num1);
+        num2 = parseFloat(num2);
+
+        var mult = num1 * num2;
+
+        alert("A multiplicação de " +num1+ " x " +num2+ " é " +mult) 
+      });
+    });
+    </script>
+
+  </head>
+  <body>
+
+    <form action="" method="">
+
+      <input type="number" name="num1" id="num1" /> <br> <br>
+
+      <input type="number" name="num2" id="num2"> <br> <br>
+
+      <button type="button" id="mult">Multiplicação</button>
+
+      <button type="button" id="div">Divisão</button>
+
+      <button type="button" id="soma">Soma</button><br><br>
+
+      <button type="button" id="resultado">Resultado</button>
+
+      <input type="number" name="resultado" id="resultado"> <br> <br>
+
+    </form>
+
+  </body>
+</html>
