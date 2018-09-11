@@ -1,44 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html body style="background-color:red;">
   <head>
     <meta charset="utf-8">
-    <title>Cadastro</title>
+    <title>Cadastro de Clientes</title>
+    <!-- 1º importar o jquery -->
+    <script src="js/jquery-3.3.1.js" charset="utf-8"></script>
+    <!-- 2º - Importar o js do Bootstrap -->
+    <script src="bootstrap/bootstrap.min.js" charset="utf-8"></script>
+    <!-- 3º Importar o css do Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <!-- 4º Implementar o js (nosso código) -->
+    <script type="text/javascript">
+      $(document).ready(function() {
 
-    <!-- Importação do jQuery -->
-    <script src="js/jquery-3.3.1.js"> </script>
+        $("#submter").click(function(){
+          alert("Cadastro Finalizado");
 
-    <!-- Todo Javascript é utilizado dentro da tag script -->
-    <script>
-      // Tudo aqui é considerado Javascript
-      $(document).ready(function(){
+        });
 
-        alert("Registre-se !");
-
-        // Evento de click no elemento aba1
         $("#aba1").click(function(){
           $("#p1").fadeIn();
 
         });
 
-
-
         $("#aba2").click(function(){
           $("#p2").fadeIn();
         });
-
 
         $("#aba3").click(function(){
           $("#p3").fadeIn();
         });
 
-
         $("#aba4").click(function(){
           $("#p4").fadeIn();
+
         });
-
-
-
       });
+
     </script>
 
     <style media="screen">
@@ -48,32 +46,61 @@
     </style>
 
   </head>
-  <body>
 
-    <h3>Criação de Cadastro</h3>
+  <body class="p-3 mb-2 bg-dark text-danger font-weight-bold">
 
-    <a href="#" id="aba1">/Documentos/</a>
-    <a href="#" id="aba2">/Formação Acadêmica/</a>
-    <a href="#" id="aba3">/Dados Profissionais/</a>
-    <a href="#" id="aba4">/Email e Senha/</a>
+    <nav class="navbar navbar-expand-lg navbar-danger bg-warning">
+
+      <div class="container">
+      <a class="navbar-brand h1 navbar-mb-0"href="#" >Formulário de Cadastro</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSite">
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSite">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="#" button class="btn btn-primary" id="aba1">Dados do Cliente</a>
+            <a href="#" button class="btn btn-primary" id="aba2">Formação Acadêmica</a>
+            <a href="#" button class="btn btn-primary" id="aba3">Dados Profissionais</a>
+            <a href="#" button class="btn btn-primary" id="aba4">Email e Senha</a>
+          </li>
+        </ul>
+
+        <ul class="nav-bar ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">
+              Social
+            </a>
+
+            <div class="dropdown-menu ">
+              <a class="dropdown-item" href="https://www.facebook.com/" target="blank">Facebook</a>
+              <a class="dropdown-item" href="https://twitter.com/?lang=pt-br" target="blank">Twitter</a>
+              <a class="dropdown-item" href="https://www.instagram.com/?hl=pt-br" target="blank">Instagram</a>
+            </div>
+          </li>
+        </ul>
+
+        </div>
+
+      </div>
+
+    </nav>
+    <br>
 
     <p id="p1">
-      <h3>Cadastro</h3>
-
-      <!-- O action representa o destino dos dados deste formulário
-      O method como esses dados serão enviados:
-        get - manda pela url
-        post - manda empacotado -->
+      <h4 class="font-weight-bold">Cadastro</h4>
+      <img src="http://web.ud.ac.th/wp-content/uploads/2017/01/affiliates.png" style="width:100px"><br><br>
       <form id="formRegistrar" action="" method="post">
 
-        <label>Usuário</label><br>
-        <input type="text" name="usuario" value="" placeholder="Digite um nome de usuário"><br>
+        <label>Usuário*</label><br>
+        <input type="text" name="usuario" value="" placeholder="Digite um nome de usuário"><br><br>
 
-        <label>Endereço</label><br>
-        <input type="text" name="Endereço" value="" placeholder="Digite seu Endereço"><br>
+        <label>Endereço*</label><br>
+        <input type="text" name="Endereço" value="" placeholder="Digite seu Endereço"><br><br>
 
-        <label>RG</label><br>
-        <input type="text" name="RG" value="" placeholder="Digite seu RG"><br>
+        <label>RG*</label><br>
+        <input type="text" name="RG" value="" placeholder="Digite seu RG"><br><br>
 
         <label>CPF</label><br>
         <input type="text" name="CPF" value="" placeholder="Digite seu CPF"><br>
@@ -83,10 +110,8 @@
     </p>
 
     <p id="p2">
-      <label>Nível Escolar</label><br>
-      <!-- O select é aquela caixa de seleção com várias opções.
-      A ordem das opções (option) é a mesma que aparece na tela.
-      A primeira serve apenas de informação para o usuário e fica vazia mesmo. -->
+      <label>Nível Escolar*</label><br>
+
       <select name="Formação">
         <option value="">Informe sua Formação</option>
         <option value="">Fundamental Incompleto</option>
@@ -99,29 +124,29 @@
       </select>
       <br><br>
 
-        <label>Especialização</label><br>
+        <label>Especialização*</label><br>
         <input type="text" name="Endereço" value="" placeholder="Digite sua especialização "><br>
-
 
     </p>
 
     <p id="p3">
-      <label>Entrada na Empresa</label><br>
-      <input type="date" name="Entrada" value=""><br>
+      <label>Data de Admissão*</label><br>
+      <input type="date" name="Entrada" value=""><br><br>
 
-      <label>Saída da Empresa</label><br>
+      <label>Data de Demissão*</label><br>
       <input type="date" name="Saida" value=""><br>
     </p>
 
     <p id="p4">
-        <label>E-mail</label><br>
-        <input type="email" name="email" value="" placeholder="fulano@tal.com"><br>
+        <label>E-mail*</label><br>
+        <input type="email" name="email" value="" placeholder="ciclano@deca.com"><br><br>
 
-        <label>Senha</label><br>
+        <label>Senha*</label><br>
         <input type="password" name="senha" value="" placeholder="Máximo 8 caracteres" maxlength="8"><br></p>
-        <input type="submit" value="Registrar">
-        <input type="reset"  value="Limpar">
+        <button id="submter" class="btn btn-danger" type="submit" value="Registrar">Registrar</button>
+        <button id="limpar" class="btn btn-success" type="reset"  value="Limpar">Limpar</button>
       </form>
+      <br>
 
-</body>
+  </body>
 </html>
