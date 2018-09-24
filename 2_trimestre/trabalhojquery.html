@@ -1,0 +1,116 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Trabalho jQuery - jQuery Countdown Timer</title>
+
+    <script src="js/jquery-3.3.1.js" charset="utf-8"></script>
+
+    <script src="bootstrap/bootstrap.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+        $("#aba1").click(function(){
+          $("#p1").fadeIn();
+
+        });
+
+        $("#aba2").click(function(){
+          $("#p2").fadeIn();
+        });
+
+        $("#aba3").click(function(){
+          $("#p3").fadeIn();
+        });
+
+        $("#aba4").click(function(){
+          $("#p4").fadeIn();
+
+        });
+      });
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-danger">
+        <a class="navbar-brand" href="#">jQuery Countdown Timer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Tutorial <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" button class="btn btn-primary" id="aba2">Plugin Funcionando</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id = "countdown"  class = "countdownHolder" >
+    <span class = "countDays" >
+        <span class = "position" >
+            <span class = "digit static" > </span>
+        </span>
+        <span class = "position" >
+            <span class = "digit static" > </span>
+        </span>
+    </span>
+
+    <span class = "countDiv countDiv0" > </span>
+
+    <span class = "countHours" >
+        <span class = "position" >
+            <span class = "digit static" > </span>
+        </span>
+        <span class = "position" >
+            <span class = "digit static" > </span>
+        </span>
+    </span>
+
+    <span class = "countDiv countDiv1" > </span>
+
+    <span class = "countMinutes" >
+        <span class = "position" >
+            <span class = "digit static" > </span>
+        </span>
+        <span class = "position" >
+            <span class = "digit static" > </span>
+        </span>
+    </span>
+
+    <span class = "countDiv countDiv2" > </span>
+
+    <span class = "countSeconds" >
+        <span class = "position" >
+            <span class = "digit static" > </span>
+        </span>
+        <span class = "position" >
+            <span class = "digit static" > </span>
+        </span>
+    </span>
+
+    <span class = "countDiv countDiv3" > </span>
+</div>
+
+
+  </body>
+</html>
