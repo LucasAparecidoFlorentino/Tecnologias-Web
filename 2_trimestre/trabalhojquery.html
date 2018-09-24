@@ -12,6 +12,8 @@
 
     <script src="js/jquery-3.3.1.js" charset="utf-8"></script>
 
+    <script src="js/timer.jquery.min.js"></script>
+
     <script src="bootstrap/bootstrap.min.js" charset="utf-8"></script>
 
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
@@ -45,6 +47,7 @@
 
   <body>
 
+
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-danger">
@@ -65,52 +68,65 @@
       </nav>
     </header>
 
-    <div id = "countdown"  class = "countdownHolder" >
-    <span class = "countDays" >
-        <span class = "position" >
-            <span class = "digit static" > </span>
-        </span>
-        <span class = "position" >
-            <span class = "digit static" > </span>
-        </span>
-    </span>
+    <div class="container-fluid">
+      <div class="text-center">
+        <br/>
+        <h2>Temporizador</h2>
+        <div class="jumbotron col-md-4 col-md-offset-4">
+          <h1 id="Tempo">00:00:00</h1>
+        </div>
 
-    <span class = "countDiv countDiv0" > </span>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+          <div class="col-md-4">
+            Horas
+            <input class="form-control" type="number" id="h" value="0" min="0" max="60">
+          </div>
+          <div class="col-md-4">
+            Minutos
+            <input class="form-control" type="number" id="m" value="1" min="0" max="60">
+          </div>
+          <div class="col-md-4">
+            Segundos
+            <input class="form-control" type="number" min="0" max="60" value="60" id="s">
+          </div>
+        <div class="col-md-12">
+          <br/>
+          <button type="button" onclick="começar()" class="btn btn-success btn-lg btn-block">Começar</button>
 
-    <span class = "countHours" >
-        <span class = "position" >
-            <span class = "digit static" > </span>
-        </span>
-        <span class = "position" >
-            <span class = "digit static" > </span>
-        </span>
-    </span>
+        </div>
+          </div>
 
-    <span class = "countDiv countDiv1" > </span>
+        </div>
 
-    <span class = "countMinutes" >
-        <span class = "position" >
-            <span class = "digit static" > </span>
-        </span>
-        <span class = "position" >
-            <span class = "digit static" > </span>
-        </span>
-    </span>
+      </div>
 
-    <span class = "countDiv countDiv2" > </span>
+    </div>
+    <script>
+    audio = new Audio("som/alarme.mp3");
+      function começar(){
+          audio.pause();
+          audio.currentTime=0;
+          $("#Tempo").timer('remove');
+          $("#Tempo").timer({
+              countdown:true,
+              duration:$('#h').val()+"h"+$('#m').val()+"m"+$('#s').val()+"s",
+              callback:function(){
+                //Tempo se terminar
+                audio.addEventListener('ended',function(){
+                  this.currentTime=0; // Loop
+                  this.play();
+                },false);
+                audio.play();
 
-    <span class = "countSeconds" >
-        <span class = "position" >
-            <span class = "digit static" > </span>
-        </span>
-        <span class = "position" >
-            <span class = "digit static" > </span>
-        </span>
-    </span>
 
-    <span class = "countDiv countDiv3" > </span>
-</div>
+              },
+              format:'%H:%M:%S'
+          });
 
+      }
+
+    </script>
 
   </body>
 </html>
