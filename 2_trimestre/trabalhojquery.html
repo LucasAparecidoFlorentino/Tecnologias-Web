@@ -22,30 +22,17 @@
 
       $(document).ready(function() {
 
-        $("#aba1").click(function(){
-          $("#p1").fadeIn();
 
-        });
-
-        $("#aba2").click(function(){
-          $("#p2").fadeIn();
-        });
-
-        $("#aba3").click(function(){
-          $("#p3").fadeIn();
-        });
-
-        $("#aba4").click(function(){
-          $("#p4").fadeIn();
-
-        });
       });
 
     </script>
 
+    <style>
+    </style>
+
   </head>
 
-  <body>
+  <body class="p-3 mb-2 bg-dark text-danger font-weight-bold">
 
 
     <header>
@@ -58,10 +45,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Tutorial <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" button class="btn btn-primary" id="aba2">Plugin Funcionando</a>
+              <a class="nav-link">Tutorial <span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>
@@ -71,7 +55,8 @@
     <div class="container-fluid">
       <div class="text-center">
         <br/>
-        <h2>Temporizador</h2>
+        <br>
+        <h2 class="text-warning">Temporizador</h2>
         <div class="jumbotron col-md-4 col-md-offset-4">
           <h1 id="Tempo">00:00:00</h1>
         </div>
@@ -80,7 +65,7 @@
           <div class="col-md-4 col-md-offset-4">
           <div class="col-md-4">
             Horas
-            <input class="form-control" type="number" id="h" value="0" min="0" max="60">
+            <input class="form-control" type="number" id="h" value="0" min="0" max="360">
           </div>
           <div class="col-md-4">
             Minutos
@@ -92,7 +77,7 @@
           </div>
         <div class="col-md-12">
           <br/>
-          <button type="button" onclick="começar()" class="btn btn-success btn-lg btn-block">Começar</button>
+          <button type="button" onclick="comecar()" class="btn btn-success btn-lg btn-block">Começar</button>
 
         </div>
           </div>
@@ -104,7 +89,7 @@
     </div>
     <script>
     audio = new Audio("som/alarme.mp3");
-      function começar(){
+      function comecar(){
           audio.pause();
           audio.currentTime=0;
           $("#Tempo").timer('remove');
