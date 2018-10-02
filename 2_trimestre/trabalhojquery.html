@@ -104,7 +104,6 @@
 
     <span style="color: #007700">&lt;/div&gt;</span>
 </pre></div>
-
         <br>
         <br>
         <p class="text-light">Chegou o momento de colocarmos um aviso sonoro para quando o tempo acabar e colocarmos o cronômetro
@@ -112,7 +111,33 @@
       Você deve criar uma pasta e colocar o audio que você deseja utilizar em seu site nessa pasta.
         Em seguida crie uma função e coloque o código necessário para que o plugin funcione.
         Após essas etapas feitas, criaremos a duração para que o temporizador funcione.</p>
-        <img src="img/audio.png" alt="">
+        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;script&gt;</span>
+    audio <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Audio(<span style="background-color: #fff0f0">&quot;som/alarme.mp3&quot;</span>);
+      <span style="color: #008800; font-weight: bold">function</span> comecar(){
+          audio.pause();
+          audio.currentTime<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>;
+          $(<span style="background-color: #fff0f0">&quot;#Tempo&quot;</span>).timer(<span style="background-color: #fff0f0">&#39;remove&#39;</span>);
+          $(<span style="background-color: #fff0f0">&quot;#Tempo&quot;</span>).timer({
+              countdown<span style="color: #333333">:</span><span style="color: #008800; font-weight: bold">true</span>,
+              duration<span style="color: #333333">:</span>$(<span style="background-color: #fff0f0">&#39;#h&#39;</span>).val()<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;h&quot;</span><span style="color: #333333">+</span>$(<span style="background-color: #fff0f0">&#39;#m&#39;</span>).val()<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;m&quot;</span><span style="color: #333333">+</span>$(<span style="background-color: #fff0f0">&#39;#s&#39;</span>).val()<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;s&quot;</span>,
+              callback<span style="color: #333333">:</span><span style="color: #008800; font-weight: bold">function</span>(){
+                <span style="color: #888888">//Tempo se terminar</span>
+                audio.addEventListener(<span style="background-color: #fff0f0">&#39;ended&#39;</span>,<span style="color: #008800; font-weight: bold">function</span>(){
+                  <span style="color: #008800; font-weight: bold">this</span>.currentTime<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; <span style="color: #888888">// Loop</span>
+                  <span style="color: #008800; font-weight: bold">this</span>.play();
+                },<span style="color: #008800; font-weight: bold">false</span>);
+                audio.play();
+
+
+              },
+              format<span style="color: #333333">:</span><span style="background-color: #fff0f0">&#39;%H:%M:%S&#39;</span>
+          });
+
+      }
+
+    <span style="color: #007700">&lt;/script&gt;</span>
+</pre></div>
+
         <br>
         <br>
         <p class="text-light">O plugin funcionando vem logo em seguida</p>
