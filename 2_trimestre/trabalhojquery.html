@@ -1,6 +1,5 @@
-
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="pt">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,22 +9,13 @@
 
     <title>Trabalho jQuery - jQuery Countdown Timer</title>
 
-    <script src="js/jquery-3.3.1.js" charset="utf-8"></script>
+    <script src="js/jquery-3.3.1.js"></script>
 
     <script src="js/timer.jquery.min.js"></script>
 
-    <script src="bootstrap/bootstrap.min.js" charset="utf-8"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-
-    <script type="text/javascript">
-
-      $(document).ready(function() {
-
-
-      });
-
-    </script>
 
     <style>
     </style>
@@ -53,6 +43,82 @@
     </header>
 
     <div class="container-fluid">
+    </div>
+      <div class="text-left">
+        <br/>
+        <br>
+        <h2 class="text-success">Tutorial</h2>
+        <h4 class="text-warning">O que é o jQuery Countdown Timer ?</h4>
+        <p class="text-light">R: O jQuery Countdown é um plugin adaptado para ser usado em qualquer layout,
+          sem qualquer dependência CSS / HTML. O objetivo é ajustar e imitar diferentes estilos de contagem regressiva
+          como você vê em cupons e sites de leilão. Podendo utilizar um áudio para quando a contagem acabar.<br>
+          Existem algumas maneiras de começar, o exemplo mais simples é o mostrado aqui.</p>
+        <h4 class="text-warning">Como utilizar o plugin ?</h4>
+        <p class="text-light">Para começar a utilização do plugin você deve acessar o seguinte link, e fazer o download dos arquivos, usaremos apenas
+        a pasta dist.</p>
+        <a href="https://github.com/walmik/timer.jquery" target="_blank" class="text-danger">jQuery Countdown</a>
+        <p class="text-light">Em seguida, crie um arquivo HTML, feito isso você deve criar um script chamando o timer.jquery.min.js</p>
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;script </span><span style="color: #0000CC">src=</span><span style="background-color: #fff0f0">&quot;js/jquery-3.3.1.js&quot;</span><span style="color: #007700">&gt;&lt;/script&gt;</span>
+<span style="color: #007700">&lt;script </span><span style="color: #0000CC">src=</span><span style="background-color: #fff0f0">&quot;js/timer.jquery.min.js&quot;</span><span style="color: #007700">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+        <p class="text-light">Para começar a escrever o código do cronômetro você deve criar um id chamado Tempo que vai servir
+        para o relógio, como na imagem abaixo</p>
+        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">  <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;container-fluid&quot;</span><span style="color: #007700">&gt;</span>
+      <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;text-center&quot;</span><span style="color: #007700">&gt;</span>
+        <span style="color: #007700">&lt;br/&gt;</span>
+        <span style="color: #007700">&lt;br&gt;</span>
+        <span style="color: #007700">&lt;h2</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;text-warning&quot;</span><span style="color: #007700">&gt;</span>Temporizador<span style="color: #007700">&lt;/h2&gt;</span>
+        <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;jumbotron col-md-4 col-md-offset-4&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;h1</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;Tempo&quot;</span><span style="color: #007700">&gt;</span>00:00:00<span style="color: #007700">&lt;/h1&gt;</span>
+    <span style="color: #007700">&lt;/div&gt;</span>
+</pre></div>
+        <br>
+        <br>
+        <p class="text-light">Feito isso, é hora de criarmos as divs que serão usadas para o relógio, criaremos a div para
+        as horas, os minutos e os segundos, e criaremos um botão para iniciar o cronômetro. Como na imagem abaixo</p>
+        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;row&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-4 col-md-offset-4&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-4&quot;</span><span style="color: #007700">&gt;</span>
+            Horas
+            <span style="color: #007700">&lt;input</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;form-control&quot;</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;number&quot;</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;h&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;0&quot;</span> <span style="color: #0000CC">min=</span><span style="background-color: #fff0f0">&quot;0&quot;</span> <span style="color: #0000CC">max=</span><span style="background-color: #fff0f0">&quot;23&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;/div&gt;</span>
+          <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-4&quot;</span><span style="color: #007700">&gt;</span>
+            Minutos
+            <span style="color: #007700">&lt;input</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;form-control&quot;</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;number&quot;</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;m&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;1&quot;</span> <span style="color: #0000CC">min=</span><span style="background-color: #fff0f0">&quot;0&quot;</span> <span style="color: #0000CC">max=</span><span style="background-color: #fff0f0">&quot;60&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;/div&gt;</span>
+          <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-4&quot;</span><span style="color: #007700">&gt;</span>
+            Segundos
+            <span style="color: #007700">&lt;input</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;form-control&quot;</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;number&quot;</span> <span style="color: #0000CC">min=</span><span style="background-color: #fff0f0">&quot;0&quot;</span> <span style="color: #0000CC">max=</span><span style="background-color: #fff0f0">&quot;60&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;60&quot;</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;s&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;/div&gt;</span>
+        <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-12&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;br/&gt;</span>
+          <span style="color: #007700">&lt;button</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;button&quot;</span> <span style="color: #0000CC">onclick=</span><span style="background-color: #fff0f0">&quot;comecar()&quot;</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;btn btn-success btn-lg btn-block&quot;</span><span style="color: #007700">&gt;</span>Começar<span style="color: #007700">&lt;/button&gt;</span>
+
+        <span style="color: #007700">&lt;/div&gt;</span>
+          <span style="color: #007700">&lt;/div&gt;</span>
+
+        <span style="color: #007700">&lt;/div&gt;</span>
+
+      <span style="color: #007700">&lt;/div&gt;</span>
+
+    <span style="color: #007700">&lt;/div&gt;</span>
+</pre></div>
+
+        <br>
+        <br>
+        <p class="text-light">Chegou o momento de colocarmos um aviso sonoro para quando o tempo acabar e colocarmos o cronômetro
+        para funcionar.
+      Você deve criar uma pasta e colocar o audio que você deseja utilizar em seu site nessa pasta.
+        Em seguida crie uma função e coloque o código necessário para que o plugin funcione.
+        Após essas etapas feitas, criaremos a duração para que o temporizador funcione.</p>
+        <img src="img/audio.png" alt="">
+        <br>
+        <br>
+        <p class="text-light">O plugin funcionando vem logo em seguida</p>
+      </div>
+
+    <div class="container-fluid">
       <div class="text-center">
         <br/>
         <br>
@@ -65,7 +131,7 @@
           <div class="col-md-4 col-md-offset-4">
           <div class="col-md-4">
             Horas
-            <input class="form-control" type="number" id="h" value="0" min="0" max="360">
+            <input class="form-control" type="number" id="h" value="0" min="0" max="23">
           </div>
           <div class="col-md-4">
             Minutos
